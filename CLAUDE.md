@@ -7,6 +7,7 @@ Paper trading estable 4-8 semanas con métricas aceptables (definidas en PLAN.md
 
 ## Fuentes de verdad
 - `docs/diseno-original.md`: diseño inicial (sobredimensionado: K8s/Kafka/nube no aplican).
+- `docs/comite-inversion-amigo.md` + `docs/integracion-comite.md`: marco de comité multi-agente y qué adoptamos.
 - Referencias investigadas: NautilusTrader, Freqtrade, vectorbt, TradingAgents (TauricResearch).
 - Estudios: los LLM decidiendo compra/venta rinden peor que un momentum simple; usarlos como analistas.
 
@@ -15,6 +16,7 @@ Paper trading estable 4-8 semanas con métricas aceptables (definidas en PLAN.md
 - Límites duros (pérdida diaria, tamaño máximo, kill switch) viven en el ejecutor, nunca en un agente.
 - El LLM nunca llama al broker directamente.
 - Backtests: walk-forward, con costos y slippage. Cifras siempre reproducibles con script.
+- Agentes no calculan métricas: motor determinista; si falta, `NO CALCULADO`. Sin look-ahead (datos point-in-time). Cada decisión deja audit trail.
 - API keys solo en `.env` (ignorado por git).
 
 ## Mapa
